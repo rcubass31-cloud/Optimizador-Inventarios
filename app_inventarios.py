@@ -9,8 +9,6 @@
     · Barra lateral : parámetros del material y opciones de la política
     · Área principal: tarjetas de datos generales, tabla de políticas óptimas
                       y curva de trade-off Capital Inmovilizado vs Fill Rate
-    · El núcleo de cálculo es IDÉNTICO al de la versión de escritorio: no se
-      ha modificado ninguna fórmula del modelo.
 
   NOTAS TÉCNICAS IMPORTANTES (leer):
   -------------------------------------------------------------------------
@@ -52,7 +50,7 @@ EXPORT_DPI = 300
 
 
 # =============================================================================
-# 1. FUNCIONES DE CÁLCULO (núcleo del modelo Factory Physics) — sin cambios
+# 1. FUNCIONES DE CÁLCULO
 # =============================================================================
 
 def factor_seguridad(fill_rate):
@@ -637,8 +635,6 @@ else:
         for col, (titulo, valor) in zip(cols, tarjetas[inicio:inicio + 4]):
             col.metric(titulo, valor)
 
-    # Métricas derivadas útiles para el análisis (no estaban como tarjetas en
-    # el ejecutable, pero se calculan con el mismo núcleo).
     sigma_lt = desviacion_demanda_leadtime(p["d"], p["sigma_d"], p["l"], p["sigma_l"])
     h_eff = costo_mantenimiento_efectivo(p["h"], costo_u,
                                          p.get("costo_oportunidad_anual", 0.0))
@@ -714,12 +710,6 @@ else:
                            file_name="curvas_tradeoff.csv", mime="text/csv")
 
 st.markdown("---")
-st.markdown(
-    "<div class='inv-note'>Núcleo de cálculo idéntico al ejecutable de escritorio "
-    "validado (optimizacion_inventarios_gui). Marco teórico: Hopp &amp; Spearman, "
-    "<i>Factory Physics</i> (3.ª ed.), modelo (Q, r) / EOQ-ROP.</div>",
-    unsafe_allow_html=True,
-)
 
 
 # =============================================================================
