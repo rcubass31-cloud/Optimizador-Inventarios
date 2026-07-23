@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ================================================================================
-  OPTIMIZACIÓN DE INVENTARIOS EN CADENA DE SUMINISTRO DE CONSTRUCCIÓN
+  OPTIMIZACIÓN DE INVENTARIOS
   Modelo (Q, r) / EOQ-ROP  —  Hopp, W. & Spearman, M., "Factory Physics" (3ra ed.)
 --------------------------------------------------------------------------------
   VERSIÓN WEB (Streamlit) — migración 1:1 desde optimizacion_inventarios_gui.py
@@ -229,7 +229,7 @@ def _fila_resumen(etiqueta, frecuencia, pol, params):
 # 3. CONFIGURACIÓN VISUAL Y VALORES POR DEFECTO
 # =============================================================================
 st.set_page_config(
-    page_title="Optimización de Inventarios — Cadena de Suministro",
+    page_title="Optimización de Inventarios",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -569,10 +569,9 @@ def tabla_politicas_formateada(tabla, moneda):
 # 8. ENCABEZADO Y EJECUCIÓN
 # =============================================================================
 st.markdown(
-    "<div class='inv-title'>Optimización de Inventarios — Cadena de Suministro "
-    "de Construcción</div>"
+    "<div class='inv-title'>Optimización de Inventarios"
     "<div class='inv-sub'>Modelo (Q, r) / EOQ-ROP bajo Factory Physics "
-    "(Hopp &amp; Spearman, 3.ª ed.) · curva de compensación entre nivel de "
+    "(Hopp &amp; Spearman) · curva de compensación entre nivel de "
     "servicio y capital inmovilizado</div>",
     unsafe_allow_html=True,
 )
